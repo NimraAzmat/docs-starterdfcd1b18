@@ -1,3 +1,43 @@
-    Installation
-        3.1 Prerequisites--
-        3.2 Installation Steps--
+## 3. Installation
+
+### 3.1 Prerequisites
+Before proceeding with the installation of the application, ensure that the following prerequisites are met:
+
+- Node.js: Make sure Node.js is installed on your system. You can download and install Node.js from the official website (https://nodejs.org/).
+
+- IPFS (InterPlanetary File System): Install IPFS, a peer-to-peer decentralized file system, which will be used in conjunction with OrbitDB for storage. You can install IPFS by following the instructions provided on the official website (https://ipfs.io/#install).
+
+### 3.2 Installation Steps
+To install and set up the project, follow these steps:
+
+#### Install Dependencies:
+All the project dependencies are in Package.json file that is installed using the following command.
+```
+npm install 
+OR
+npm i
+```
+#### Set Up IPFS:
+Start the IPFS daemon:
+To start the IPFS daemon, use the following command:
+```
+ipfs daemon
+```
+This command initializes the IPFS daemon, which is responsible for managing local IPFS node operations, including content storage, retrieval, and network communication.
+#### Running IPFS daemon with Tor proxy:
+
+To run the IPFS daemon with network traffic routed through the Tor network, use the following command:
+```
+torsocks ipfs daemon --enable-pubsub-experiment
+```
+- torsocks: This command is used to route network traffic through the Tor network. It ensures that all network requests made by IPFS are anonymized through Tor, enhancing privacy and security.
+
+- --enable-pubsub-experiment: This flag enables the experimental pubsub feature in the IPFS daemon. Pubsub allows for real-time communication and event notification between IPFS nodes, facilitating decentralized applications and services.
+
+#### Ensure that IPFS is running and accessible:
+
+Before running the IPFS daemon with Tor proxy, ensure that Tor is running on your system. You can start Tor using the following command:
+```
+sudo tor
+```
+This command starts the Tor service, which acts as a proxy for routing network traffic through the Tor network. It's necessary to have Tor running to facilitate the anonymization of IPFS traffic through the Tor network.
