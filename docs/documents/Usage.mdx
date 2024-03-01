@@ -1,15 +1,65 @@
 # Usage
 
 ## 5.1 API Endpoints
-
-- **'/extract/currency/:timestamp'**: Endpoint for triggering currency rate updates.
-- **Description:** This API endpoint retrieves currency and crypto exchange rates based on the provided timestamp.
-- **Request Method:** GET
-- **Request Parameters:**
--- **timestamp:** The Unix timestamp for which currency and crypto exchange rates are requested.
-- **Response:**
--- **Currency Rates:** Exchange rates for various currencies against USD.
--- **Crypto Rates:** Exchange rates for cryptocurrencies against USD.
+```
+[
+  {
+    path: '/user/token',
+    methods: [ 'POST' ],
+    middlewares: [ 'refreshToken' ]
+  },
+  {
+    path: '/user/logout',
+    methods: [ 'DELETE' ],
+    middlewares: [ 'logoutUser' ]
+  },
+  {
+    path: '/user/login',
+    methods: [ 'POST' ],
+    middlewares: [ 'login' ]
+  },
+  {
+    path: '/fetch-data/:userId',
+    methods: [ 'GET' ],
+    middlewares: [ 'authenticateToken', 'fetchUserData' ]
+  },
+  {
+    path: '/user/signup',
+    methods: [ 'POST' ],
+    middlewares: [ 'signup' ]
+  },
+  {
+    path: '/user/update/:userId',
+    methods: [ 'PUT' ],
+    middlewares: [ 'authenticateToken', 'updateUserData' ]
+  },
+  {
+    path: '/delete-user/:userId',
+    methods: [ 'DELETE' ],
+    middlewares: [ 'authenticateToken', 'deleteUser' ]
+  },
+  {
+    path: '/conv/conversations',
+    methods: [ 'POST' ],
+    middlewares: [ 'authenticateToken', 'createConversations' ]
+  },
+  {
+    path: '/conv/update/:id',
+    methods: [ 'PUT' ],
+    middlewares: [ 'authenticateToken', 'updateConversations' ]
+  },
+  {
+    path: '/conv/conversations/:id',
+    methods: [ 'GET' ],
+    middlewares: [ 'authenticateToken', 'getConversations' ]
+  },
+  {
+    path: '/conv/conversation/:conversationId/message',
+    methods: [ 'POST' ],
+    middlewares: [ 'authenticateToken', 'addMessageToConversation' ]
+  }
+]
+```
 
 ### **Sample Response:**
 
@@ -60,12 +110,15 @@ Connection: close
 
 ## Documentation:
 
-- API Endpoint: http://host:port/extract/currency/1707138422
+- API Endpoint: http://localhost:port/
 
 ### Sample Usage:
 
 ```bash
-curl -X GET "http://host:port/extract/currency/1707138422"
+torsocks curl -X POST http://localhost:port/user/login -H 'Content-Type: application/json'   -d '{  "username": "SadRedCat",
+    "password": "*******"
+}'
+
 ```
 ### Postman Setup:
 - Open Postman.
