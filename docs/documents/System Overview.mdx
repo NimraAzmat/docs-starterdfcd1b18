@@ -8,7 +8,7 @@ The project leverages a variety of technologies to achieve its objectives. These
 
 - Node.js: A JavaScript runtime environment used for building scalable and efficient server-side applications.
 - Express.js: A minimalist web framework for Node.js used to build robust APIs and web applications.
-- MongoDB: A NoSQL database used for storing and managing user data, providing flexibility and scalability.
+- OrbitDB: A decenterlized database used for storing and managing user data.
 - JWT (JSON Web Tokens): A secure and compact means of representing claims between parties, used for user authentication and authorization.
 - Socket.IO: A library enabling real-time, bidirectional communication between web clients and servers, facilitating real-time messaging functionality.
 - Joi: A JavaScript library utilized for schema description and validation of user data, ensuring data integrity and consistency.
@@ -20,7 +20,7 @@ The architecture of the application follows a modular and scalable design, compr
 
 - Application Layer: The backend logic of the application resides in this layer. It comprises APIs, middleware, and business logic responsible for handling user authentication, data validation, and business processes such as messaging and meeting scheduling.
 
-- Data Layer: The data layer consists of the MongoDB database, where user data, chat messages, group information, and other application data are stored. MongoDB's flexible document-based model allows for efficient storage and retrieval of structured and unstructured data.
+- Data Layer: The data layer consists of the OrbitDB database, where user data, chat messages, group information, and other application data are stored. OrbitDB's decentralized database model allows for efficient storage and retrieval of structured and unstructured data in a peer-to-peer network.
 
 - Infrastructure Layer: This layer encompasses the underlying infrastructure components, including servers, containers, and networking configurations. Technologies such as Docker and Kubernetes are employed to manage and orchestrate the deployment of application components, ensuring scalability, reliability, and performance.
 
