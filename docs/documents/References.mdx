@@ -1,0 +1,63 @@
+
+# References
+
+## 8.1 External APIs
+### Crypto API
+
+The project interacts with the CoinMarketCap API to fetch cryptocurrency data. Here are the details of the API:
+
+- **API Provider**: CoinMarketCap
+- **API Documentation**: [CoinMarketCap API Documentation](https://coinmarketcap.com/api/documentation/v1/)
+- **API Endpoint**: `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest`
+- **Authentication**: The API requires an API key for authentication. In the code snippet, the API key is included in the request headers as `X-CMC_PRO_API_KEY`.
+- **Supported Operations**: The API provides various endpoints for accessing cryptocurrency data, including quotes, market pairs, historical data, and more.
+- **Usage Guidelines**: Refer to the official documentation for usage guidelines, rate limits, and best practices. Ensure compliance with the API terms of service and any usage restrictions.
+
+### Forex API
+
+The project utilizes the Open Exchange Rates API to retrieve forex (foreign exchange) data. Here's the relevant information about the API:
+
+- **API Provider**: Open Exchange Rates
+- **API Documentation**: [Open Exchange Rates API Documentation](https://openexchangerates.org/documentation)
+- **API Endpoint**: `https://openexchangerates.org/api/latest.json`
+- **Authentication**: The API requires an App ID for authentication. In the code snippet, the App ID is included as a query parameter named `app_id`.
+- **Supported Operations**: The API provides access to real-time and historical exchange rates for various currencies, currency conversion, and more.
+- **Usage Guidelines**: Review the official documentation for usage instructions, rate limits, and any usage restrictions imposed by the API provider. Ensure compliance with the API terms of service and any licensing requirements.
+
+
+## 8.2 Libraries and Dependencies
+
+The project relies on the following libraries and dependencies:
+
+### axios
+
+- **Description**: Axios is a popular Promise-based HTTP client for the browser and Node.js. It simplifies making asynchronous HTTP requests and handling responses.
+- **Version**: 1.6.7
+- **Documentation**: [Axios GitHub Repository](https://github.com/axios/axios)
+
+### ipfs-http-client
+
+- **Description**: ipfs-http-client is a JavaScript client library for the IPFS (InterPlanetary File System) HTTP API. It allows interaction with IPFS nodes over HTTP.
+- **Version**: 60.0.1
+- **Documentation**: [ipfs-http-client GitHub Repository](https://github.com/ipfs/js-ipfs-http-client)
+
+### orbit-db
+
+- **Description**: OrbitDB is a serverless, distributed, peer-to-peer database for the decentralized web. It provides a way to store and query data in a distributed manner using IPFS and CRDTs (Conflict-Free Replicated Data Types).
+- **Version**: 0.29.0
+- **Documentation**: [OrbitDB GitHub Repository](https://github.com/orbitdb/orbit-db)
+
+### ipfs
+
+- **Description**: IPFS (InterPlanetary File System) is a protocol and network designed to create a peer-to-peer method of storing and sharing hypermedia in a distributed file system.
+- **Version**: 0.66.1
+- **Documentation**: [IPFS GitHub Repository](https://github.com/ipfs/js-ipfs)
+
+### dotenv
+
+- **Description**: dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. It simplifies the management of environment-specific configuration.
+- **Version**: 16.4.5
+- **Documentation**: [dotenv GitHub Repository](https://github.com/motdotla/dotenv)
+
+These dependencies are essential for the project's functionality and enable communication with external APIs, interaction with IPFS nodes, and utilization of the OrbitDB decentralized database.
+

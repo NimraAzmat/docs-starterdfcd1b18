@@ -1,0 +1,83 @@
+# Usage
+
+## 5.1 API Endpoints
+
+- **'/extract/currency/:timestamp'**: Endpoint for triggering currency rate updates.
+- **Description:** This API endpoint retrieves currency and crypto exchange rates based on the provided timestamp.
+- **Request Method:** GET
+- **Request Parameters:**
+-- **timestamp:** The Unix timestamp for which currency and crypto exchange rates are requested.
+- **Response:**
+-- **Currency Rates:** Exchange rates for various currencies against USD.
+-- **Crypto Rates:** Exchange rates for cryptocurrencies against USD.
+
+### **Sample Response:**
+
+```json
+{
+  "currency": {
+    "forex": {
+      /* Forex rates */
+    },
+    "crypto": {
+      /* Crypto rates */
+    }
+  }
+}
+```
+
+**URL:** http://127.0.0.1:3000/extract/currency/1707138422
+**Method:** GET
+
+## Request Example
+
+```http
+GET http://127.0.0.1:3000/extract/currency/1707138422
+```
+
+## Response Example
+
+```json
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 2722
+ETag: W/"aa2-xmwHpB0mzbCkT2NoIgnxTHD7rZI"
+Date: Wed, 28 Feb 2024 12:16:35 GMT
+Connection: close
+
+{
+  "currency": {
+    "forex": {
+      ...
+    },
+    "crypto": {
+      ...
+    }
+  }
+}
+```
+
+## Documentation:
+
+- API Endpoint: http://127.0.0.1:3000/extract/currency/1707138422
+
+### Sample Usage:
+
+```bash
+curl -X GET "http://127.0.0.1:3000/extract/currency/1707138422"
+```
+### Postman Setup:
+- Open Postman.
+- Create a new request.
+- Set the request type to GET.
+- Enter the URL: http://127.0.0.1:3000/extract/currency/1707138422.
+- Click "Send" to execute the request.
+- You should see the response.
+
+## Alternative Curl Command:
+
+```bash
+curl -X GET "http://{address}:3000/extract/currency/1707138422"
+```
+

@@ -1,0 +1,18 @@
+# Error Handling
+
+## 6.1 Error Codes and Descriptions
+List of common error codes along with their descriptions and possible causes.
+- 500: **Internal Server Error** - Indicates that an unexpected condition occurred on the server, preventing it from fulfilling the request.
+- 503: **Service Unavailable** - Indicates that the server is currently unable to handle the request due to temporary overloading or maintenance of the server.
+- 504: **Gateway Timeout** - Indicates that the server, while acting as a gateway or proxy, did not receive a timely response from the upstream server.
+- 400: **Bad Request** - Indicates that the server cannot process the request due to invalid syntax or other client-side errors.
+- 404: **Not Found** - Indicates that the requested resource could not be found on the server.
+
+## 6.2 Error Response Format
+Error responses follow the standard HTTP status codes along with an error message and additional details when applicable.
+
+```Example Error Response:
+{
+  "error": "Internal server error",
+  "details": "An unexpected error occurred while processing the request."
+}```
