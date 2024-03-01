@@ -1,0 +1,74 @@
+
+
+
+{
+  "mySidebar": [
+    {
+      "type": "category",
+      "label": "Overview",
+      "items": [
+        {
+          "type": "doc",
+          "id": "documents/introduction",
+          "label": "Introduction"
+        },
+        {
+          "type": "doc",
+          "id": "documents/system-overview",
+          "label": "System Overview"
+        },
+         {
+          "type": "doc",
+          "id": "documents/installation",
+          "label": "Installation"
+        },
+         {
+          "type": "doc",
+          "id": "documents/configuration",
+          "label": "Configuration"
+         },
+         {
+          "type": "doc",
+          "id": "documents/usage",
+          "label": "Usage"
+        },
+         {
+          "type": "doc",
+          "id": "documents/error-handling",
+          "label": "Error Handling"
+        },
+         {
+          "type": "doc",
+          "id": "documents/security",
+          "label": "Security"
+        },
+         {
+          "type": "doc",
+          "id": "documents/testing",
+          "label": "Testing"
+        },
+         {
+          "type": "doc",
+          "id": "documents/maintenance",
+          "label": "Maintenance"
+        },
+         {
+          "type": "doc",
+          "id": "documents/troubleshooting",
+          "label": "Troubleshooting"
+        },
+         {
+          "type": "doc",
+          "id": "documents/document-conventions",
+          "label": "Document Conventions"
+        },
+         {
+          "type": "doc",
+          "id": "documents/references",
+          "label": "References"
+        }
+        
+      ]
+    }
+  ]
+}
