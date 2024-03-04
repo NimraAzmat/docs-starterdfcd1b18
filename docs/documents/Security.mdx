@@ -1,24 +1,27 @@
 ## 7. Security
 ### 7.1 API Key Management:
-- Description: 
+- *Description*: 
+\
     The application manages API keys for accessing protected routes and resources.
-- Implementation:
+- *Implementation*:
      - API keys are generated using JSON Web Tokens (JWT) for authentication and authorization.
      - Access to sensitive endpoints is controlled using middleware functions that validate JWT tokens.
      - API keys are securely stored as environment variables using the dotenv package.
 
 ### 7.2 Data Encryption:
-- Description: 
+- *Description*: 
+\
     The application ensures data confidentiality through encryption.
-- Implementation:
+- *Implementation*:
     - User passwords are securely hashed using the bcrypt library before storing them in the database.
     - Sensitive information exchanged between the client and server, such as JWT tokens, is encrypted using HTTPS protocol.
     - Communication between the server and the OrbitDB instance is encrypted to prevent data interception.
 
 ### 7.3 Access Control:
-- Description: 
+- *Description*: 
+\
     The application enforces access control measures to restrict unauthorized access to resources.
-- Implementation:
+- *Implementation*:
     - Middleware functions, such as authenticateToken, verify the authenticity of JWT tokens before granting access to protected routes.
     - Different levels of access are assigned based on user roles, and specific permissions are required to perform certain actions.
     - Error responses with appropriate HTTP status codes (e.g., 401, 403) are sent for unauthorized access attempts.
