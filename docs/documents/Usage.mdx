@@ -1,136 +1,214 @@
 # Usage
 
 ## 5.1 API Endpoints
+#### 1. User Token
+
+    Path: /user/token
+    Methods: POST
+    Middleware: refreshToken
+
+#### 2. User Logout
+
+    Path: /user/logout
+    Methods: DELETE
+    Middleware: logoutUser
+
+#### 3. User Login
+
+    Path: /user/login
+    Methods: POST
+    Middleware: login
+
+#### 4. Fetch User Data
+
+    Path: /fetch-data/:userId
+    Methods: GET
+    Middleware: authenticateToken, fetchUserData
+    Note: :userId should be replaced with the actual user ID.
+
+#### 5. User Signup
+
+    Path: /user/signup
+    Methods: POST
+    Middleware: signup
+
+#### 6. Update User Data
+
+    Path: /user/update/:userId
+    Methods: PUT
+    Middleware: authenticateToken, updateUserData
+    Note: :userId should be replaced with the actual user ID.
+
+#### 7. Delete User
+
+    Path: /delete-user/:userId
+    Methods: DELETE
+    Middleware: authenticateToken, deleteUser
+    Note: :userId should be replaced with the actual user ID.
+
+
+## 5.2 Example Requests and Responses
+
+Provide examples of requests and responses for each endpoint here.
+
+#### 1. User Token
+
+#### Request Example:
+
+```http
+POST /user/token
+Content-Type: application/json
+
+{
+  "username": "example_username",
+  "password": "example_password"
+}
+#### Response Example:
+```json
+    {
+      "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+    }
+``` 
+#### 2. User Logout
+#### Request Example:
+
+```http
+DELETE /user/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
-[
-  {
-    path: '/user/token',
-    methods: [ 'POST' ],
-    middlewares: [ 'refreshToken' ]
-  },
-  {
-    path: '/user/logout',
-    methods: [ 'DELETE' ],
-    middlewares: [ 'logoutUser' ]
-  },
-  {
-    path: '/user/login',
-    methods: [ 'POST' ],
-    middlewares: [ 'login' ]
-  },
-  {
-    path: '/fetch-data/:userId',
-    methods: [ 'GET' ],
-    middlewares: [ 'authenticateToken', 'fetchUserData' ]
-  },
-  {
-    path: '/user/signup',
-    methods: [ 'POST' ],
-    middlewares: [ 'signup' ]
-  },
-  {
-    path: '/user/update/:userId',
-    methods: [ 'PUT' ],
-    middlewares: [ 'authenticateToken', 'updateUserData' ]
-  },
-  {
-    path: '/delete-user/:userId',
-    methods: [ 'DELETE' ],
-    middlewares: [ 'authenticateToken', 'deleteUser' ]
-  },
-  {
-    path: '/conv/conversations',
-    methods: [ 'POST' ],
-    middlewares: [ 'authenticateToken', 'createConversations' ]
-  },
-  {
-    path: '/conv/update/:id',
-    methods: [ 'PUT' ],
-    middlewares: [ 'authenticateToken', 'updateConversations' ]
-  },
-  {
-    path: '/conv/conversations/:id',
-    methods: [ 'GET' ],
-    middlewares: [ 'authenticateToken', 'getConversations' ]
-  },
-  {
-    path: '/conv/conversation/:conversationId/message',
-    methods: [ 'POST' ],
-    middlewares: [ 'authenticateToken', 'addMessageToConversation' ]
-  }
-]
+#### Response Example:
+
+```json
+    {
+      "message": "Logged out successfully"
+    }
 ```
+#### 3. User Login
+
+#### Request Example:
+
+```http
+POST /user/login
+Content-Type: application/json
+
+{
+  "username": "example_username",
+  "password": "example_password"
+}
+```
+#### Response Example:
+
+```json
+    {
+      "message": "Login successful",
+      "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+    }
+```
+#### 4. Fetch User Data
+
+#### Request Example:
+
+```http
+GET /fetch-data/123456
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+```
+#### Response Example:
+```json
+    {
+      "user_id": 123456,
+      "name": "John Doe",
+      "email": "john@example.com"
+    }
+```
+#### 5. User Signup
+
+#### Request Example:
+```http
+POST /user/signup
+Content-Type: application/json
+
+{
+  "username": "example_username",
+  "password": "example_password",
+  "email": "example@example.com"
+}
+```
+#### Response Example:
+```json
+    {
+      "message": "Signup successful",
+      "user_id": 789012,
+      "username": "example_username",
+      "email": "example@example.com"
+    }
+```
+#### 6. Update User Data
+
+#### Request Example:
+```http
+PUT /user/update/789012
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+{
+  "name": "Updated Name",
+  "email": "updated@example.com"
+}
+```
+#### Response Example:
+
+```json
+    {
+      "message": "User data updated successfully"
+    }
+```
+#### 7. Delete User
+
+#### Request Example:
+
+```http
+DELETE /delete-user/789012
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+```
+#### Response Example:
+
+```json
+    {
+      "message": "User deleted successfully"
+    }
+```
+## 5.3 Handling Requests
+
+Describe how the server handles requests, including error handling, validation, and any other relevant processes.
+
+- Error Handling: 
+The server returns appropriate HTTP status codes and error messages for different scenarios, such as unauthorized access, invalid requests, or server errors.
+
+- Validation: 
+Request payloads are validated to ensure they meet the required format and constraints. For example, during signup, the server checks for valid email addresses and strong passwords.
+
+- Authorization: 
+Endpoints requiring authentication include middleware to verify the validity of access tokens provided in the request headers.
+
+- Data Manipulation: 
+Endpoints for updating or deleting user data verify the user's identity through authentication tokens and perform the necessary operations securely.
+
+- Documentation: Clear documentation is provided for each endpoint, including usage examples, expected request and response formats, and any additional notes or considerations for developers integrating with the API.
 
 ### **Sample Response:**
 
-```json
-{
-  "currency": {
-    "forex": {
-      /* Forex rates */
-    },
-    "crypto": {
-      /* Crypto rates */
-    }
-  }
-}
-```
-
-**URL:** http://host:port/extract/currency/1707138422
-**Method:** GET
-
 ## Request Example
-
-```http
-GET http://host:port/extract/currency/1707138422
-```
 
 ## Response Example
 
-```json
-HTTP/1.1 200 OK
-X-Powered-By: Express
-Content-Type: application/json; charset=utf-8
-Content-Length: 2722
-ETag: W/"aa2-xmwHpB0mzbCkT2NoIgnxTHD7rZI"
-Date: Wed, 28 Feb 2024 12:16:35 GMT
-Connection: close
-
-{
-  "currency": {
-    "forex": {
-      ...
-    },
-    "crypto": {
-      ...
-    }
-  }
-}
-```
-
 ## Documentation:
-
-- API Endpoint: http://localhost:port/
 
 ### Sample Usage:
 
-```bash
-torsocks curl -X POST http://localhost:port/user/login -H 'Content-Type: application/json'   -d '{  "username": "SadRedCat",
-    "password": "*******"
-}'
-
-```
-### Postman Setup:
-- Open Postman.
-- Create a new request.
-- Set the request type to GET.
-- Enter the URL: http://host:port/endpoint
-- Click "Send" to execute the request.
-- You should see the response.
+### Postman Setup:.
 
 ## Alternative Curl Command:
 
-```bash
-curl -X GET "http://{address}:port/extract/currency/1707138422"
-```
 
