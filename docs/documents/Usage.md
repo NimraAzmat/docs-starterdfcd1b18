@@ -63,6 +63,7 @@ Content-Type: application/json
   "username": "example_username",
   "password": "example_password"
 }
+```
 #### Response Example:
 ```json
     {
