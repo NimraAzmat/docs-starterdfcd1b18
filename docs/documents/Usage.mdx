@@ -1,6 +1,6 @@
-# Usage
+## Usage
 
-## 5.1 API Endpoints
+### 5.1 API Endpoints
 #### 1. User Token
 
     Path: /user/token\
@@ -47,11 +47,11 @@
     Note: :userId should be replaced with the actual user ID.
 
 
-## 5.2 Example Requests and Responses
+### 5.2 Example Requests and Responses
 
 Provide examples of requests and responses for each endpoint here.
 
-#### 1. User Token
+### 1. User Token
 
 #### Request Example:
 
@@ -70,7 +70,7 @@ Content-Type: application/json
       "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
     }
 ``` 
-#### 2. User Logout
+### 2. User Logout
 #### Request Example:
 
 ```http
@@ -84,7 +84,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
       "message": "Logged out successfully"
     }
 ```
-#### 3. User Login
+### 3. User Login
 
 #### Request Example:
 
@@ -106,7 +106,7 @@ Content-Type: application/json
       "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
     }
 ```
-#### 4. Fetch User Data
+### 4. Fetch User Data
 
 #### Request Example:
 
@@ -122,7 +122,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
       "email": "john@example.com"
     }
 ```
-#### 5. User Signup
+### 5. User Signup
 
 #### Request Example:
 ```http
@@ -144,7 +144,7 @@ Content-Type: application/json
       "email": "example@example.com"
     }
 ```
-#### 6. Update User Data
+### 6. Update User Data
 
 #### Request Example:
 ```http
@@ -164,7 +164,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
       "message": "User data updated successfully"
     }
 ```
-#### 7. Delete User
+### 7. Delete User
 
 #### Request Example:
 
@@ -179,37 +179,115 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
       "message": "User deleted successfully"
     }
 ```
-## 5.3 Handling Requests
+### 5.3 Handling Requests
 
 Describe how the server handles requests, including error handling, validation, and any other relevant processes.
 
-- Error Handling: 
+- Error Handling:
+\
 The server returns appropriate HTTP status codes and error messages for different scenarios, such as unauthorized access, invalid requests, or server errors.
 
 - Validation:
+\
 Request payloads are validated to ensure they meet the required format and constraints. For example, during signup, the server checks for valid email addresses and strong passwords.
 
 - Authorization: 
+\
 Endpoints requiring authentication include middleware to verify the validity of access tokens provided in the request headers.
 
 - Data Manipulation: 
+\
 Endpoints for updating or deleting user data verify the user's identity through authentication tokens and perform the necessary operations securely.
 
 - Documentation:
+\
 Clear documentation is provided for each endpoint, including usage examples, expected request and response formats, and any additional notes or considerations for developers integrating with the API.
 
-### **Sample Response:**
+### Alternative Curl Command:
+### 1. Fetch User Data
 
-## Request Example
+```bash
+curl -X GET \
+  http://localhost:3001/fetch-data/SadRedCat \
+  -H 'Authorization: Bearer Token'
+``` 
+### 2. Delete User
 
-## Response Example
+```bash
+curl -X DELETE \
+  http://localhost:3001/delete-user/test \
+  -H 'Authorization: Bearer Token'
+  ```
 
-## Documentation:
+### 3. User Login
 
-### Sample Usage:
+```bash
+curl -X POST \
+  http://localhost:3001/user/login \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "username": "SadRedCat",
+    "password": "123456"
+}'
+```
+### 4. User Signup
 
-### Postman Setup:.
+```bash
+curl -X POST \
+  http://localhost:3001/user/signup \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "_id": "test2",
+    "pass": "123456"
+}'
+```
+### 5. Save User (Testing)
 
-## Alternative Curl Command:
+bash
 
+curl -X POST \
+  http://localhost:3001/save-user \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "_id": "test",
+    "pass": "123456"
+}'
+
+### 6. Update User Data
+
+```bash
+curl -X PUT \
+  http://localhost:3001/user/update/test \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer token' \
+  -d '{
+    "password":"123456",
+    "Userbio": "Updated bio test",
+    "Userburntime": 3,
+    "Userstorylinks": [
+        "https://updated_link1test.com",
+        "https://updated_link2test.com"
+    ],
+    "Userstorytimes": [ 200, 300]
+}'
+```
+### 7. User Logout
+```bash
+curl -X DELETE \
+  http://localhost:3001/user/logout \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "token": "token"
+}'
+```
+### 8. User Token
+
+```bash
+curl -X POST \
+  http://localhost:3001/user/token \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "token": "token"
+}'
+```
 
