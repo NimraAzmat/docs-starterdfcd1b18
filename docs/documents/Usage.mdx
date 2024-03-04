@@ -67,7 +67,6 @@ Content-Type: application/json
 #### Response Example:
 
 ```json
-
 {
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
   "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
@@ -84,7 +83,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 #### Response Example:
 
 ```json
-
 {
   "message": "Logged out successfully"
 }
@@ -93,7 +91,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 #### Request Example:
 
 ```http
-
 POST /user/login
 Content-Type: application/json
 
@@ -105,7 +102,6 @@ Content-Type: application/json
 #### Response Example:
 
 ```json
-
 {
   "message": "Login successful",
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
@@ -116,14 +112,12 @@ Content-Type: application/json
 #### Request Example:
 
 ```http
-
 GET /fetch-data/123456
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 #### Response Example:
 
 ```json
-
 {
   "user_id": 123456,
   "name": "John Doe",
@@ -134,7 +128,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 #### Request Example:
 
 ```http
-
 POST /user/signup
 Content-Type: application/json
 
@@ -147,7 +140,6 @@ Content-Type: application/json
 #### Response Example:
 
 ```json
-
 {
   "message": "Signup successful",
   "user_id": 789012,
@@ -159,7 +151,6 @@ Content-Type: application/json
 #### Request Example:
 
 ```http
-
 PUT /user/update/789012
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
@@ -172,7 +163,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 #### Response Example:
 
 ```json
-
 {
   "message": "User data updated successfully"
 }
@@ -181,14 +171,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 #### Request Example:
 
 ```http
-
 DELETE /delete-user/789012
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 #### Response Example:
 
 ```json
-
 {
   "message": "User deleted successfully"
 }
@@ -216,7 +204,6 @@ Alternative Curl Commands
 ### 1. Fetch User Data
 
 ```bash
-
 curl -X GET \
   http://localhost:3001/fetch-data/SadRedCat \
   -H 'Authorization: Bearer Token'
@@ -224,7 +211,6 @@ curl -X GET \
 ### 2. Delete User
 
 ```bash
-
 curl -X DELETE \
   http://localhost:3001/delete-user/test \
   -H 'Authorization: Bearer Token'
@@ -232,7 +218,6 @@ curl -X DELETE \
 ### 3. User Login
 
 ```bash
-
 curl -X POST \
   http://localhost:3001/user/login \
   -H 'Content-Type: application/json' \
@@ -244,7 +229,6 @@ curl -X POST \
 ### 4. User Signup
 
 ```bash
-
 curl -X POST \
   http://localhost:3001/user/signup \
   -H 'Content-Type: application/json' \
@@ -256,7 +240,6 @@ curl -X POST \
 ### 5. Save User (Testing)
 
 ```bash
-
 curl -X POST \
   http://localhost:3001/save-user \
   -H 'Content-Type: application/json' \
@@ -268,7 +251,6 @@ curl -X POST \
 ### 6. Update User Data
 
 ```bash
-
 curl -X PUT \
   http://localhost:3001/user/update/test \
   -H 'Content-Type: application/json' \
@@ -287,7 +269,6 @@ curl -X PUT \
 ### 7. User Logout
 
 ```bash
-
 curl -X DELETE \
   http://localhost:3001/user/logout \
   -H 'Content-Type: application/json' \
@@ -298,7 +279,6 @@ curl -X DELETE \
 ### 8. User Token
 
 ```bash
-
 curl -X POST \
   http://localhost:3001/user/token \
   -H 'Content-Type: application/json' \
